@@ -1,0 +1,10 @@
+1- I have some issues during shape detection that it recognize some shapes
+that doesnt exit in the photo despite i used many types of blur to overcome any
+sharp pixels that could confuse the program 
+
+2- i didn't detect the direction of image cause of shortage of time as i have
+exam and final project in my embedded system course and i'm sorry for that
+but when i've searched about this , one idea is about using angles to detect the
+inclination angle of particular object then by using some condition like
+(if angle>90: cv2.puttext"right") it is not accurate im just sayin
+

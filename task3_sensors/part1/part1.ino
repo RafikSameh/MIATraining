@@ -37,6 +37,10 @@ void setup() {
   pinMode(Enc1Arm2,INPUT_PULLUP);
   pinMode(Enc2Arm2,INPUT_PULLUP);
   pinMode(button,INPUT);
+  pinMode(motor1pin1,OUTPUT);
+  pinMode(motor1pin2,OUTPUT);
+  pinMode(motor2pin1,OUTPUT);
+  pinMode(motor2pin2,OUTPUT);
 
   //interrupts for encoder of motor1 
   attachInterrupt(Enc1Arm1, ISR_Enc1Arm1, CHANGE);

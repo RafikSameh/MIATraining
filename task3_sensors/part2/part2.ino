@@ -1,16 +1,23 @@
 #include <Wire.h>
+#include <arduino-timer.h>
 #define IMU_ADD 0x68
 
 int16_t AcX,AcY,AcZ;
 
 int minVal=265;
 int maxVal=402;
+auto timer = timer_create_default(); //create timer with default settings
 
 double x;
 double y;
 double z;
 
-
+bool print_angle(void*)
+{
+  Serial.print("Angle of arm1 = ");
+  Serial.println(z);
+  return true;
+}
 void setup() {
   // put your setup code here, to run once:
   Wire.begin();
@@ -20,6 +27,7 @@ void setup() {
   Wire.endTransmission(true);
   
   Serial.begin(9600);
+  timer.every(500,print_angle); //print angle every 0.5 sec
 
 }
 
@@ -42,8 +50,5 @@ void loop() {
        y= RAD_TO_DEG * (atan2(-xAng, -zAng)+PI);
        z= RAD_TO_DEG * (atan2(-yAng, -xAng)+PI);
 
-     Serial.print("AngleZ= ");
-     Serial.println(z);
-     delay(200);
-     
+  timer.tick();   
 }

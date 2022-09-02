@@ -28,8 +28,6 @@ void setup() {
 void loop() {
 
   // set target position
-  //int target = 1200;
-  //int target = 250*sin(prevT/1e6);
   int targetAngle = Serial.read();
   
 
